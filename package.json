@@ -34,7 +34,7 @@
     "static-site-generator-webpack-plugin": "^2.0.1",
     "style-loader": "^0.13.0",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^^3.10.3"
+    "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
     "imports-loader": "^0.6.5",
