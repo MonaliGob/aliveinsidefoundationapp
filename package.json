@@ -33,8 +33,9 @@
     "sass-loader": "^3.1.2",
     "static-site-generator-webpack-plugin": "^2.0.1",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "4.29.6",
+    "webpack-cli": "3.2.3",
+    "webpack-dev-server": "3.2.1"
   },
   "dependencies": {
     "imports-loader": "^0.6.5",
