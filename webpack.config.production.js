@@ -1,5 +1,5 @@
 // webpack.config.js
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var webpack = require('webpack');
 
 module.exports = ({
@@ -30,10 +30,12 @@ module.exports = ({
       {
         test: /\.scss/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css?minimize!sass'
-        )
+        use: extractCss ? [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          'css-loader'
+        ] : ['style-loader', ...cssRules]
       },
       {
           test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$/,
@@ -52,7 +54,7 @@ module.exports = ({
         warnings: false
       }
     }),
-    new ExtractTextPlugin('style.css', {
+    new MiniCssExtractPlugin('style.css', {
       allChunks: true
     }),
     new webpack.ProvidePlugin({
