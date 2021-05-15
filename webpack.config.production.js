@@ -35,7 +35,7 @@ module.exports = ({
             loader: MiniCssExtractPlugin.loader
           },
           'css-loader'
-        ] : ['style-loader', ...cssRules]
+        ]
       },
       {
           test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$/,
