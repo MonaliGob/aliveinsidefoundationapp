@@ -1,5 +1,6 @@
 // webpack.config.js
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = ({
