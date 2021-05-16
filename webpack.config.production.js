@@ -4,7 +4,12 @@ var webpack = require('webpack');
 
 module.exports = ({
   optimization: {
-    minimizer: [new UglifyJsPlugin()],
+    minimizer: [new UglifyJsPlugin({
+    compress: {
+      warnings: false,
+    }
+  })
+  ]
   },
   entry: [
     './app/index.js',
