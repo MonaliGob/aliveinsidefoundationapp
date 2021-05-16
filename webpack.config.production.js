@@ -3,6 +3,9 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var webpack = require('webpack');
 
 module.exports = ({
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
+  },
   entry: [
     './app/index.js',
     './app/styles/styles.scss'
@@ -47,11 +50,6 @@ module.exports = ({
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
       }
     }),
     new MiniCssExtractPlugin('style.css', {
