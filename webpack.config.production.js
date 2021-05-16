@@ -29,23 +29,25 @@ module.exports = ({
     extensions: ['', '.js']
   },
   module: {
-    loaders: [{
+    rules: [{
         test: /\.js?$/,
         exclude: /node_modules/,
         loader: ['babel'],
-        query: {
+        options: {
           presets: ['es2015', 'react'],
         }
       },
-      {
-        test: /\.scss/,
-        exclude: /node_modules/,
+       {
+        test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '/public/path/to/',
+            },
           },
-          'css-loader'
-        ]
+          'css-loader',
+        ],
       },
       {
           test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$/,
@@ -59,9 +61,9 @@ module.exports = ({
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new MiniCssExtractPlugin('style.css', {
-      allChunks: true
-    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    }), 
     new webpack.ProvidePlugin({
         'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
         'Map': 'core-js/fn/map',
