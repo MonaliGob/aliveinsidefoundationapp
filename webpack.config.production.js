@@ -5,9 +5,10 @@ var webpack = require('webpack');
 module.exports = ({
   optimization: {
     minimizer: [new UglifyJsPlugin({
-    compress: {
-      warnings: false,
-    }
+    uglifyOptions: {
+          warnings: false,
+          compress: {},
+    },
   })
   ]
   },
