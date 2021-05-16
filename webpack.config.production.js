@@ -32,10 +32,14 @@ module.exports = ({
     rules: [{
         test: /\.js?$/,
         exclude: /node_modules/,
+      use: [
+      {
         loader: ['babel'],
         options: {
           presets: ['es2015', 'react'],
         }
+      }
+      ]
       },
        {
         test: /\.css$/,
@@ -51,7 +55,11 @@ module.exports = ({
       },
       {
           test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$/,
-          loader: 'file'
+          use: [
+          {       
+            loader: 'file'
+          }
+          ]
       }
     ],
   },
